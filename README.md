@@ -1,86 +1,60 @@
 # ServiceConnect Backend
 
-Backend server for the ServiceConnect platform, built with Node.js, Express, Firebase Authentication, and MongoDB.
+This is the backend server for the ServiceConnect platform, built with Node.js and Firebase Authentication.
 
 ## Setup Instructions
 
-1. Install dependencies:
+1. **Install Dependencies**
 ```bash
 npm install
 ```
 
-2. Create a Firebase project and get your service account credentials:
-   - Go to Firebase Console
-   - Create a new project
-   - Go to Project Settings > Service Accounts
-   - Generate a new private key
-   - Save the JSON file
+2. **Firebase Setup**
+- Create a new Firebase project in the [Firebase Console](https://console.firebase.google.com)
+- Go to Project Settings > Service Accounts
+- Generate a new private key and save it as `firebase-service-account.json` in the root directory
+- Enable Authentication in Firebase Console and set up the desired providers (Email/Password, Google, etc.)
 
-3. Create a `.env` file in the root directory with the following variables:
-```env
-MONGODB_URI=your_mongodb_connection_string
+3. **Environment Variables**
+Create a `.env` file in the root directory with the following variables:
+```
 PORT=5000
-FIREBASE_PROJECT_ID=your_firebase_project_id
-FIREBASE_PRIVATE_KEY=your_firebase_private_key
-FIREBASE_CLIENT_EMAIL=your_firebase_client_email
+FIREBASE_PROJECT_ID=your-project-id
+GOOGLE_APPLICATION_CREDENTIALS=./firebase-service-account.json
 ```
 
-4. Start the server:
-```bash
-# Development mode
-npm run dev
+4. **Frontend Firebase Configuration**
+- Go to Firebase Console > Project Settings
+- Under the "Web" section, register a new web application
+- Copy the Firebase configuration object
+- Paste it in the `firebaseConfig` object in `public/js/firebaseAuth.js`
 
-# Production mode
+5. **Start the Server**
+Development mode:
+```bash
+npm run dev
+```
+
+Production mode:
+```bash
 npm start
 ```
 
 ## API Endpoints
 
 ### Authentication
-- POST `/api/users/register` - Register a new user
-- GET `/api/users/profile` - Get user profile (requires authentication)
-- PUT `/api/users/profile` - Update user profile (requires authentication)
+- `POST /api/auth/verify-token` - Verify Firebase ID token
+  - Headers: `Authorization: Bearer <firebase-id-token>`
 
-### Workers
-- GET `/api/users/workers` - Get all workers
-- GET `/api/users/workers/:id` - Get worker by ID
+### Protected Routes
+- `GET /api/profile` - Get user profile (protected route)
+  - Headers: `Authorization: Bearer <firebase-id-token>`
 
-## Authentication
-
-The API uses Firebase Authentication. Include the Firebase ID token in the Authorization header:
-```
-Authorization: Bearer your_firebase_id_token
-```
-
-## Models
-
-### User
-- firebaseUid (String, required)
-- email (String, required)
-- fullName (String, required)
-- phoneNumber (String)
-- role (String: 'client' or 'worker')
-- address (Object)
-  - street
-  - city
-  - state
-  - zipCode
-  - country
-- workerProfile (Object, for workers only)
-  - services (Array of Strings)
-  - skills (Array of Strings)
-  - experience (Number)
-  - hourlyRate (Number)
-  - availability (Boolean)
-  - rating (Number)
-  - totalReviews (Number)
+## Security
+- Uses Firebase Authentication for secure user management
+- Implements token verification middleware
+- CORS enabled
+- Helmet.js for security headers
 
 ## Error Handling
-
-The API returns appropriate HTTP status codes and error messages:
-- 200: Success
-- 201: Resource created
-- 400: Bad request
-- 401: Unauthorized
-- 404: Resource not found
-- 500: Server error 
+The server implements centralized error handling middleware for consistent error responses. 

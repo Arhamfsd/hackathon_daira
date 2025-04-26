@@ -8,6 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login to ServiceConnect</h2>
+            <div class="login-form">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button id="loginButton">Login</button>
+                <button id="googleLoginButton" class="google-btn">
+                    <i class="fab fa-google"></i> Login with Google
+                </button>
+                <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+            </div>
+            <div class="signup-form" style="display: none;">
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+                <button id="signupButton">Sign Up</button>
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">ServiceConnect</div>
@@ -16,7 +40,11 @@
             <a href="#services">Services</a>
             <a href="#workers">Workers</a>
             <a href="#contact">Contact</a>
-            <button class="login-btn">Login</button>
+            <button class="login-btn" id="openLoginModal">Login</button>
+            <button class="profile-btn" id="profileButton" style="display: none;">
+                <i class="fas fa-user"></i>
+                <span id="userEmail"></span>
+            </button>
         </div>
     </nav>
 
@@ -132,5 +160,13 @@
             <p>&copy; 2024 ServiceConnect. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    
+    <!-- Your scripts -->
+    <script src="public/js/firebaseAuth.js"></script>
+    <script src="public/js/app.js"></script>
 </body>
 </html>
