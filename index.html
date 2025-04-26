@@ -3,9 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ServiceConnect - Find Local Service Providers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">ServiceConnect</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#workers">Workers</a>
+            <a href="#contact">Contact</a>
+            <button class="login-btn">Login</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1>Find Trusted Service Providers Near You</h1>
+            <p>Connect with verified professionals in your area instantly</p>
+            <div class="search-box">
+                <input type="text" placeholder="What service do you need?">
+                <input type="text" placeholder="Your location">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Electrician</h3>
+                <p>Professional electrical services</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-wrench"></i>
+                <h3>Plumber</h3>
+                <p>Expert plumbing solutions</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hammer"></i>
+                <h3>Carpenter</h3>
+                <p>Quality woodwork services</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Painter</h3>
+                <p>Professional painting services</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Workers -->
+    <section class="workers" id="workers">
+        <h2>Top Rated Professionals</h2>
+        <div class="worker-grid">
+            <div class="worker-card">
+                <img src="https://via.placeholder.com/150" alt="Worker">
+                <h3>John Doe</h3>
+                <p>Electrician</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>4.5</span>
+                </div>
+                <button class="contact-btn">Contact</button>
+            </div>
+            <div class="worker-card">
+                <img src="https://via.placeholder.com/150" alt="Worker">
+                <h3>Jane Smith</h3>
+                <p>Plumber</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>5.0</span>
+                </div>
+                <button class="contact-btn">Contact</button>
+            </div>
+            <div class="worker-card">
+                <img src="https://via.placeholder.com/150" alt="Worker">
+                <h3>Mike Johnson</h3>
+                <p>Carpenter</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <button class="contact-btn">Contact</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ServiceConnect</h3>
+                <p>Find trusted professionals in your area</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#workers">Workers</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@serviceconnect.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ServiceConnect. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
